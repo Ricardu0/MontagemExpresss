@@ -4,18 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Montagem Express - Serviços de Montagem em São Paulo</title>
+    <meta name="description" content="Montagem Express: montagem profissional de móveis residenciais e corporativos (PLANEJADOS) em São Paulo. Agilidade e qualidade. Solicite seu orçamento pelo WhatsApp.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://montagemexpress.com.br/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Montagem Express - Serviços de Montagem em São Paulo">
+    <meta property="og:description" content="Montagem profissional com rapidez, qualidade em toda São Paulo.">
+    <meta property="og:url" content="https://montagemexpress.com.br/">
+    <meta property="og:image" content="https://montagemexpress.com.br/og-image.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Montagem Express - Serviços de Montagem em São Paulo">
+    <meta name="twitter:description" content="Montagem profissional com rapidez, qualidade em toda São Paulo.">
+    <meta name="twitter:image" content="https://montagemexpress.com.br/og-image.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Montagem Express",
+      "description": "Montagem de móveis residenciais e corporativos planejados em São Paulo.",
+      "url": "https://montagemexpress.com.br/",
+      "areaServed": "São Paulo",
+      "telephone": "+55-11-93759-1981",
+      "image": "https://montagemexpress.com.br/og-image.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      }
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) - substitua pelos seus IDs -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} // eslint-disable-line
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // GA4 Measurement ID
+        gtag('config', 'AW-XXXXXXXXX'); // Google Ads (opcional)
+    </script>
     <style>
+        /* Efeito brilhozinho para 'Planejado(s)' */
+        .brilho-planejado {
+            background: linear-gradient(90deg, #ffe082 20%, #fffde7 50%, #ffe082 80%);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            transition: background-position 0.5s cubic-bezier(.4,0,.2,1);
+            position: relative;
+        }
+        .brilho-planejado:hover, .brilho-planejado.brilho-anim {
+            background-position: 100% 0;
+            filter: drop-shadow(0 0 4px #fffde7cc);
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .brilho-planejado.brilho-anim {
+                animation: brilhoPulse 2.5s infinite linear alternate;
+            }
+        }
+        @keyframes brilhoPulse {
+            0% { background-position: 0% 0; filter: drop-shadow(0 0 2px #fffde7aa); }
+            100% { background-position: 100% 0; filter: drop-shadow(0 0 6px #ffe082cc); }
+        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: #f5f5f5;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d2d2d 100%);
+            color: #f8f9fa;
+            line-height: 1.7;
+            font-weight: 400;
+            letter-spacing: -0.01em;
         }
 
         .container {
@@ -26,13 +100,16 @@
 
         /* Navigation */
         .navbar {
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
@@ -45,12 +122,52 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-size: 1.8rem;
             font-weight: bold;
             background: linear-gradient(45deg, #d4af37, #f7d794, #d4af37);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37, #f7d794);
+            background-clip: padding-box;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo-placeholder:hover {
+            transform: rotate(5deg) scale(1.1);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            object-fit: contain;
+            background: rgba(255,255,255,0.04);
+            padding: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
         }
 
         .nav-menu {
@@ -61,39 +178,78 @@
         }
 
         .nav-link {
-            color: #f5f5f5;
+            color: #e9ecef;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 8px 15px;
-            border-radius: 5px;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 10px 18px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(247, 215, 148, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 8px;
         }
 
         .nav-link:hover {
             color: #d4af37;
-            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover::before {
+            opacity: 1;
         }
 
         .nav-link.active {
             color: #d4af37;
-            background: rgba(212, 175, 55, 0.2);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(247, 215, 148, 0.1));
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
         }
 
         .whatsapp-btn {
-            background: linear-gradient(45deg, #25D366, #128C7E);
+            background: linear-gradient(135deg, #25D366, #128C7E, #075E54);
             color: white;
-            padding: 12px 25px;
+            padding: 12px 28px;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .whatsapp-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn:hover::before {
+            left: 100%;
         }
 
         .mobile-menu {
@@ -110,6 +266,123 @@
             transition: 0.3s;
         }
 
+        /* Floating actions */
+        .floating-stack {
+            position: fixed;
+            right: calc(18px + env(safe-area-inset-right));
+            bottom: calc(18px + env(safe-area-inset-bottom));
+            z-index: 1100;
+            display: flex; /* desktop default */
+            gap: 12px;
+            flex-direction: column;
+        }
+
+        .floating-whatsapp, .floating-instagram {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.12);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            will-change: transform;
+            font-size: 0.95rem;
+            line-height: 1;
+            letter-spacing: -0.01em;
+        }
+
+        .floating-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E, #0e6f5f);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.28);
+        }
+
+        .floating-instagram {
+            background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+            box-shadow: 0 6px 16px rgba(221, 42, 123, 0.28);
+        }
+
+        .floating-whatsapp .badge {
+            background: rgba(255,255,255,0.18);
+            padding: 4px 8px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .floating-whatsapp:hover, .floating-instagram:hover {
+            transform: translateY(-1px);
+        }
+
+        .floating-whatsapp:hover { box-shadow: 0 10px 22px rgba(37, 211, 102, 0.35); }
+        .floating-instagram:hover { box-shadow: 0 10px 22px rgba(221, 42, 123, 0.35); }
+
+        .floating-whatsapp:focus-visible, .floating-instagram:focus-visible {
+            outline: 3px solid rgba(255,255,255,0.8);
+            outline-offset: 2px;
+        }
+
+        /* Attention animation (subtle, limited) */
+        @keyframes pulseGlow {
+            0% { transform: translateY(0) scale(1); box-shadow: 0 10px 28px rgba(37,211,102,0.35); }
+            50% { transform: translateY(-2px) scale(1.04); box-shadow: 0 18px 40px rgba(37,211,102,0.5); }
+            100% { transform: translateY(0) scale(1); box-shadow: 0 10px 28px rgba(37,211,102,0.35); }
+        }
+
+        .floating-whatsapp.attention { animation: pulseGlow 1.8s ease-in-out 2; }
+        .floating-instagram.attention { animation: pulseGlow 1.8s ease-in-out 2; }
+
+        .floating-icon {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+        }
+
+        .mobile-only { display: none; }
+
+        /* Mobile CTA bar */
+        .mobile-cta-bar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1200;
+            background: rgba(15,15,15,0.96);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: none;
+        }
+
+        .mobile-cta-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 12px 16px env(safe-area-inset-bottom);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn-call {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 999px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #2b8a3e, #2f9e44);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 8px 22px rgba(47, 158, 68, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-call:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(47, 158, 68, 0.45); }
+        .btn-call:focus-visible { outline: 3px solid rgba(255,255,255,0.8); outline-offset: 2px; }
+
         /* Pages Container */
         .page {
             display: none;
@@ -123,43 +396,92 @@
 
         /* Home Page Styles */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(26,26,26,0.9)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            padding: 100px 0;
+            background-attachment: fixed;
+            padding: 120px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), transparent, rgba(247, 215, 148, 0.1));
+            pointer-events: none;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #d4af37, #f7d794);
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #d4af37, #f7d794, #d4af37);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease-in-out infinite;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #e6d7c5;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #e9ecef;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(45deg, #d4af37, #f7d794);
+            background: linear-gradient(135deg, #d4af37, #f7d794, #d4af37);
             color: #1a1a1a;
-            padding: 15px 35px;
+            padding: 18px 40px;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1.1rem;
-            margin-top: 20px;
-            transition: all 0.3s ease;
+            margin-top: 32px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         /* Services Section */
@@ -183,38 +505,66 @@
         }
 
         .service-card {
-            background: linear-gradient(135deg, #2d2d2d, #3a3a3a);
-            padding: 30px;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+            padding: 40px 30px;
+            border-radius: 20px;
             text-align: center;
-            transition: transform 0.3s ease;
-            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
             background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px) scale(1.02);
             border-color: #d4af37;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.25);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
         }
 
         .service-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            border-radius: 15px;
+            margin-bottom: 24px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
         }
 
         .service-card h3 {
             color: #d4af37;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
         }
 
         .service-card p {
-            color: #e6d7c5;
-            line-height: 1.6;
+            color: #e9ecef;
+            line-height: 1.7;
+            font-size: 1rem;
+            font-weight: 400;
         }
 
         /* About Page Styles */
@@ -447,13 +797,15 @@
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: 80px;
                 flex-direction: column;
-                background-color: rgba(0, 0, 0, 0.95);
+                background: rgba(15, 15, 15, 0.98);
+                backdrop-filter: blur(20px);
                 width: 100%;
                 text-align: center;
-                transition: 0.3s;
-                padding: 20px 0;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                padding: 30px 0;
+                border-top: 1px solid rgba(212, 175, 55, 0.1);
             }
 
             .nav-menu.active {
@@ -464,20 +816,79 @@
                 display: flex;
             }
 
+            .hero {
+                padding: 100px 0;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                padding: 0 20px;
             }
 
             .about-grid, .coverage-content {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .logo {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+            }
+
+            .logo-placeholder {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
             }
 
             .whatsapp-btn {
                 display: none;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .cta-button {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+
+            .floating-stack, .floating-whatsapp, .floating-instagram { display: flex !important; }
+            .mobile-only { display: block; }
+            .mobile-cta-bar { display: none !important; }
+        }
+
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .logo-placeholder {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .service-card {
+                padding: 25px 15px;
+            }
+
+            .service-card h3 {
+                font-size: 1.4rem;
             }
         }
 
@@ -496,19 +907,41 @@
         .service-card, .value-card, .portfolio-item, .category-card, .zone-card {
             animation: fadeInUp 0.6s ease-out;
         }
+
+        /* Acessibilidade e redução de movimento */
+        :focus-visible {
+            outline: 3px solid rgba(212, 175, 55, 0.9);
+            outline-offset: 2px;
+            border-radius: 8px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+            .hero {
+                background-attachment: initial;
+            }
+        }
     </style>
 </head>
 <body>
 <!-- Navigation -->
 <nav class="navbar">
     <div class="nav-container">
-        <div class="logo" onclick="showPage('home')">Montagem Express</div>
+        <div class="logo" onclick="showPage('home')" aria-label="Voltar ao início">
+            <div class="logo-placeholder" aria-hidden="true">ME</div>
+            <span>Montagem Express</span>
+        </div>
         <ul class="nav-menu">
             <li><a href="#" class="nav-link active" onclick="showPage('home')">Início</a></li>
             <li><a href="#" class="nav-link" onclick="showPage('about')">Quem Somos</a></li>
             <li><a href="#" class="nav-link" onclick="showPage('services')">Serviços</a></li>
             <li><a href="#" class="nav-link" onclick="showPage('portfolio')">Portfólio</a></li>
-            <li><a href="https://wa.me/5511999999999?text=Olá! Gostaria de solicitar um orçamento para montagem" class="whatsapp-btn" target="_blank">📱 WhatsApp</a></li>
+            <li><a href="avaliacao.html" class="nav-link" style="color:#ffe082;font-weight:700;">Avaliações</a></li>
+            <li><a href="https://wa.me/5511937591981?text=Olá! Vim pelo o site, e gostaria de solicitar um orçamento para montagem" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" data-event="whatsapp_nav">📱 WhatsApp</a></li>
         </ul>
         <div class="mobile-menu" onclick="toggleMenu()">
             <span></span>
@@ -525,8 +958,11 @@
         <div class="container">
             <h1>Montagem Express</h1>
             <p>Serviços profissionais de montagem em toda São Paulo</p>
-            <p>Rapidez, qualidade e garantia em todos os serviços!</p>
-            <a href="https://wa.me/5511999999999?text=Olá! Gostaria de solicitar um orçamento para montagem" class="cta-button" target="_blank">Solicitar Orçamento</a>
+            <p>Rapidez, qualidade e garantia de satisfação em todos os serviços!</p>
+            <a href="https://wa.me/5511937591981?text=Olá! Vim pelo site, e gostaria de solicitar um orçamento para montagem" class="cta-button" target="_blank" rel="noopener noreferrer" data-event="whatsapp_hero">Solicitar Orçamento</a>
+            <div class="mobile-only" style="margin-top:14px;">
+                <a href="https://wa.me/5511937591981?text=Olá! Vim pelo site, quero conversar sobre montagem." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" data-event="whatsapp_hero_mobile">Conversar no WhatsApp</a>
+            </div>
         </div>
     </section>
 
@@ -534,22 +970,28 @@
     <section class="services">
         <div class="container">
             <h2 class="section-title">Nossos Serviços de Montagem</h2>
+            
             <div class="services-grid">
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Montagem de Móveis">
-                    <h3>Móveis Residenciais</h3>
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Montagem de Móveis Planejados" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                    <h3>Móveis Residenciais <span class="brilho-planejado">Planejados</span></h3>
                     <p>Montagem de armários, camas, estantes, mesas, cadeiras, guarda-roupas e todos os tipos de móveis para sua casa.</p>
                 </div>
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Móveis de Escritório">
-                    <h3>Móveis Corporativos</h3>
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Móveis de Escritório Planejados" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                    <h3>Móveis Corporativos <span class="brilho-planejado">Planejados</span></h3>
                     <p>Montagem de mesas de escritório, estações de trabalho, arquivos, estantes corporativas e móveis para empresas.</p>
                 </div>
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cozinha Planejada">
-                    <h3>Cozinhas Planejadas</h3>
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cozinha Planejada" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                    <h3>Cozinhas <span class="brilho-planejado brilho-anim">Planejadas</span></h3>
                     <p>Montagem completa de cozinhas planejadas, armários aéreos, balcões, instalação de dobradiças e puxadores.</p>
                 </div>
+
+                <div style="background: #2d2d2d; color: #ffb300; border-radius: 10px; padding: 18px 22px; margin: 24px 0 32px 0; font-size: 1.13rem; font-weight: 500; box-shadow: 0 2px 12px rgba(0,0,0,0.10); border-left: 6px solid #ff5252;">
+                🚫 <strong>Não fazemos marcenaria</strong><br>
+                Não realizamos fabricação ou modificação de móveis. Nosso foco é exclusivamente na montagem de peças já produzidas por marcenarias ou lojas especializadas.
+            </div>
             </div>
         </div>
     </section>
@@ -582,7 +1024,7 @@
                     </div>
                 </div>
                 <div class="coverage-image">
-                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mapa São Paulo" style="width: 100%; max-width: 500px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mapa São Paulo" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 100%; max-width: 500px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                 </div>
             </div>
         </div>
@@ -603,25 +1045,25 @@
             <div class="about-grid">
                 <div class="about-text">
                     <h2>Nossa História</h2>
-                    <p>A Montagem Express nasceu em 2018 com o objetivo de facilitar a vida dos paulistanos na montagem de móveis. Começamos como uma pequena empresa familiar e hoje somos referência em serviços de montagem em São Paulo.</p>
-                    <p>Ao longo dos anos, desenvolvemos uma metodologia própria que nos permite oferecer serviços rápidos, seguros e com garantia de qualidade. Nossa equipe cresceu, mas mantivemos os valores que nos trouxeram até aqui.</p>
-                    <p>Já realizamos mais de 15.000 montagens, sempre priorizando a satisfação do cliente e a excelência no atendimento.</p>
+                    <p>A Montagem Express nasceu em 2024 com o objetivo de facilitar a vida dos paulistanos na montagem de móveis. Começamos como uma pequena empresa familiar e hoje temos boas referências em serviços de montagem em São Paulo.</p>
+                    <p>Ao longo do tempo, desenvolvemos uma metodologia própria que nos permite oferecer serviços rápidos, seguros e com garantia de satisfação. Nossa equipe cresceu ligeiramente, e mantivemos os valores que nos trouxeram até aqui.</p>
+                    <p>Já realizamos mais de 60 montagens, sempre priorizando a satisfação do cliente e a excelência no atendimento.</p>
                 </div>
                 <div>
-                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Equipe trabalhando" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Equipe trabalhando" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                 </div>
             </div>
 
             <div class="about-grid">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Missão e Visão" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Missão e Visão" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                 </div>
                 <div class="about-text">
                     <h2>Missão</h2>
-                    <p>Proporcionar soluções completas em montagem de móveis, oferecendo serviços de qualidade superior com agilidade, segurança e preços justos, superando as expectativas dos nossos clientes.</p>
+                    <p>Proporcionar soluções ágeis em montagem de móveis, oferecendo serviços de qualidade superior com rapidez, segurança e preços justos, almejando sempre superar as expectativas dos nossos clientes.</p>
 
                     <h2 style="margin-top: 30px;">Visão</h2>
-                    <p>Ser a empresa líder em serviços de montagem na Grande São Paulo, reconhecida pela excelência, inovação e compromisso com a satisfação total do cliente.</p>
+                    <p>Ser a empresa líder em serviços de montagem na Grande São Paulo, reconhecida pela excelência, rapidez e compromisso com a satisfação total do cliente.</p>
                 </div>
             </div>
 
@@ -650,7 +1092,7 @@
                 <div class="value-card">
                     <div class="icon">🛡️</div>
                     <h3>Confiança</h3>
-                    <p>Profissionais certificados e garantia em todos os serviços.</p>
+                    <p>Profissionais qualificados e com experiência.</p>
                 </div>
                 <div class="value-card">
                     <div class="icon">💡</div>
@@ -667,7 +1109,7 @@
     <section class="about-hero">
         <div class="container">
             <h1 class="section-title">Nossos Serviços</h1>
-            <p style="font-size: 1.2rem; color: #e6d7c5; max-width: 800px; margin: 0 auto;">Montagem profissional para todos os tipos de móveis e necessidades</p>
+            <p style="font-size: 1.2rem; color: #e6d7c5; max-width: 800px; margin: 0 auto;">Montagem profissional para todos os tipos de móveis <span class="brilho-planejado"> planejados</span> e necessidades</p>
         </div>
     </section>
 
@@ -756,7 +1198,7 @@
             <div style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, #2d2d2d, #3a3a3a); border-radius: 15px;">
                 <h2 style="color: #d4af37; margin-bottom: 20px;">Não encontrou o que procura?</h2>
                 <p style="color: #e6d7c5; font-size: 1.1rem; margin-bottom: 25px;">Entre em contato conosco! Montamos praticamente qualquer tipo de móvel.</p>
-                <a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber sobre montagem de um móvel específico" class="cta-button" target="_blank">Consultar Montagem Especial</a>
+                <a href="https://wa.me/5511937591981?text=Olá! Vim pelo o site e gostaria de saber sobre montagem de um móvel específico" class="cta-button" target="_blank" rel="noopener noreferrer" data-event="whatsapp_special">Consultar Montagem Especial</a>
             </div>
         </div>
     </section>
@@ -775,7 +1217,7 @@
         <div class="container">
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Quarto Completo">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Quarto Completo" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                     <div class="portfolio-info">
                         <h3>Quarto Completo - Vila Olímpia</h3>
                         <p>Montagem completa de quarto de casal incluindo guarda-roupa de 6 portas, cama box king size, criados-mudos e cômoda.</p>
@@ -788,7 +1230,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cozinha Planejada">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cozinha Planejada" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                     <div class="portfolio-info">
                         <h3>Cozinha Planejada - Pinheiros</h3>
                         <p>Instalação completa de cozinha planejada com armários aéreos, balcões, gavetas, dobradiças e todos os acabamentos.</p>
@@ -801,7 +1243,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Escritório Corporativo">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Escritório Corporativo" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                     <div class="portfolio-info">
                         <h3>Escritório Corporativo - Brooklin</h3>
                         <p>Montagem de mobiliário completo para escritório: 12 estações de trabalho, armários e sala de reuniões.</p>
@@ -814,7 +1256,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Home Theater">
+                    <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Home Theater" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                     <div class="portfolio-info">
                         <h3>Home Theater - Morumbi</h3>
                         <p>Montagem de rack completo, painel de TV 65", suporte de parede e organização de cabos do sistema de som.</p>
@@ -827,7 +1269,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Quarto Infantil">
+                    <img src="https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Quarto Infantil" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                     <div class="portfolio-info">
                         <h3>Quarto Infantil - Vila Madalena</h3>
                         <p>Montagem segura de berço, cômoda com trocador, guarda-roupa infantil e prateleiras decorativas.</p>
@@ -840,7 +1282,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Closet Planejado">
+                    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Closet Planejado" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                     <div class="portfolio-info">
                         <h3>Closet Planejado - Moema</h3>
                         <p>Instalação completa de closet com araras, gavetas, sapateira, espelhos e sistema de iluminação LED.</p>
@@ -853,7 +1295,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sala de Estar">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sala de Estar" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                     <div class="portfolio-info">
                         <h3>Sala Completa - Santana</h3>
                         <p>Montagem de estante grande, mesa de centro, rack para TV e organização completa da sala de estar.</p>
@@ -866,7 +1308,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lavanderia">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lavanderia" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                     <div class="portfolio-info">
                         <h3>Área de Serviço - Perdizes</h3>
                         <p>Montagem de armários para lavanderia, prateleiras, organizadores e otimização do espaço disponível.</p>
@@ -879,7 +1321,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Escritório Home Office">
+                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Escritório Home Office" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                     <div class="portfolio-info">
                         <h3>Home Office - Lapa</h3>
                         <p>Criação de espaço de trabalho em casa com mesa executiva, estante, arquivo e cadeira ergonômica.</p>
@@ -895,7 +1337,7 @@
             <div style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, #2d2d2d, #3a3a3a); border-radius: 15px;">
                 <h2 style="color: #d4af37; margin-bottom: 20px;">Seu Projeto Pode Ser o Próximo!</h2>
                 <p style="color: #e6d7c5; font-size: 1.1rem; margin-bottom: 25px;">Temos mais de 15.000 montagens realizadas. Faça parte da nossa história de sucesso!</p>
-                <a href="https://wa.me/5511999999999?text=Olá! Vi o portfólio de vocês e gostaria de solicitar um orçamento" class="cta-button" target="_blank">Solicitar Meu Orçamento</a>
+                <a href="https://wa.me/5511937591981?text=Olá! Vi o portfólio de vocês e gostaria de solicitar um orçamento" class="cta-button" target="_blank" rel="noopener noreferrer" data-event="whatsapp_portfolio">Solicitar Meu Orçamento</a>
             </div>
         </div>
     </section>
@@ -907,25 +1349,25 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Montagem Express</h3>
-                <p>Sua satisfação é nossa prioridade. Serviços de montagem com qualidade e garantia em toda São Paulo.</p>
-                <p style="margin-top: 20px;"><strong>Garantia de 90 dias em todos os serviços!</strong></p>
+                <p>Sua satisfação é nossa prioridade. Serviços de montagem com qualidade e agilidade em toda São Paulo.</p>
+                <p style="margin-top: 20px;"><strong>Prezamos focar em entregar a melhor experiência possível em todos os serviços!</strong></p>
             </div>
             <div class="footer-section">
                 <h3>Serviços</h3>
                 <ul>
-                    <li>Móveis Residenciais</li>
-                    <li>Móveis Corporativos</li>
-                    <li>Cozinhas Planejadas</li>
-                    <li>Racks e Painéis</li>
-                    <li>Móveis Infantis</li>
-                    <li>Closets</li>
+                    <li>Móveis Residenciais <span class="brilho-planejado">Planejados</span></li>
+                    <li>Móveis Corporativos <span class="brilho-planejado">Planejados</span></li>
+                    <li>Cozinhas <span class="brilho-planejado">Planejadas</span></li>
+                    <li>Racks e Painéis <span class="brilho-planejado">Planejados</span></li>
+                    <li>Móveis Infantis <span class="brilho-planejado">Planejados</span></li>
+                    <li>Closets <span class="brilho-planejado">Planejados</span></li>
                     <li>Home Office</li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
-                <p>📱 WhatsApp: (11) 99999-9999</p>
-                <p>📧 Email: contato@montagemexpress.com</p>
+                <p>📱 WhatsApp: (11)93759-1981</p>
+                <p>📧 Email: montagemexpresss.2010@hotmail.com</p>
                 <p>📍 Atendemos toda São Paulo</p>
                 <p>🕒 Segunda a Sábado: 7h às 19h</p>
                 <p>🕒 Domingo: 8h às 16h</p>
@@ -948,89 +1390,199 @@
 </footer>
 
 <script>
-    // Navigation functionality
-    function showPage(pageId) {
-        // Hide all pages
-        const pages = document.querySelectorAll('.page');
-        pages.forEach(page => page.classList.remove('active'));
+    // App module (reduz acoplamento e organiza responsabilidades)
+    (function(){
+        const App = {
+            sessionId: (Date.now().toString(36) + Math.random().toString(36).slice(2,8)).toUpperCase(),
+            qs: (s, r=document) => r.querySelector(s),
+            qsa: (s, r=document) => Array.from(r.querySelectorAll(s)),
 
-        // Show selected page
-        document.getElementById(pageId).classList.add('active');
+            init() {
+                this.trackVisit();
+                this.bindAnalyticsClicks();
+                this.setupSmoothScroll();
+                this.setupScrollNavbar();
+                this.setupAnimations();
+                this.setupOutsideClickClose();
+                this.addFloatingWhatsApp();
+                this.addFloatingInstagram();
+            },
 
-        // Update navigation
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => link.classList.remove('active'));
-        event.target.classList.add('active');
+            navigateTo(pageId, evt) {
+                // Páginas
+                this.qsa('.page').forEach(p => p.classList.remove('active'));
+                const page = this.qs('#' + pageId);
+                if (page) page.classList.add('active');
 
-        // Close mobile menu if open
-        document.querySelector('.nav-menu').classList.remove('active');
+                // Navegação ativa
+                this.qsa('.nav-link').forEach(a => a.classList.remove('active'));
+                if (evt && evt.currentTarget) {
+                    evt.currentTarget.classList.add('active');
+                }
 
-        // Scroll to top
-        window.scrollTo(0, 0);
-    }
+                // Fechar menu mobile
+                const navMenu = this.qs('.nav-menu');
+                if (navMenu) navMenu.classList.remove('active');
 
-    // Mobile menu toggle
-    function toggleMenu() {
-        const navMenu = document.querySelector('.nav-menu');
-        navMenu.classList.toggle('active');
-    }
+                // Scroll top
+                window.scrollTo(0, 0);
 
-    // Smooth scroll for links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
+                // Track
+                console.log('[MontagemExpress] View', { pageId });
+                if (typeof gtag === 'function') {
+                    gtag('event', 'page_view', { page_title: pageId, page_path: '#' + pageId });
+                }
+            },
+
+            toggleMenu() {
+                const navMenu = App.qs('.nav-menu');
+                if (navMenu) navMenu.classList.toggle('active');
+            },
+
+            trackVisit() {
+                const visitTs = new Date().toISOString();
+                console.log('[MontagemExpress] Visit', { sessionId: this.sessionId, visitTs, path: location.pathname + location.hash });
+                if (typeof gtag === 'function') {
+                    gtag('event', 'visit', { session_id: this.sessionId, page_location: location.href });
+                }
+            },
+
+            bindAnalyticsClicks() {
+                document.addEventListener('click', function(e){
+                    const link = e.target.closest('a[data-event]');
+                    if (!link) return;
+                    const eventName = link.getAttribute('data-event');
+                    console.log('[MontagemExpress] Click', { event: eventName, href: link.href });
+                    if (typeof gtag === 'function') {
+                        gtag('event', eventName || 'click', { link_url: link.href });
+                        if (eventName && eventName.startsWith('whatsapp')) {
+                            gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXX/xxxxxxxxxxx' });
+                        }
+                    }
                 });
+            },
+
+            setupSmoothScroll() {
+                this.qsa('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) target.scrollIntoView({ behavior: 'smooth' });
+                    });
+                });
+            },
+
+            setupScrollNavbar() {
+                const navbar = this.qs('.navbar');
+                if (!navbar) return;
+                window.addEventListener('scroll', function(){
+                    if (window.scrollY > 50) {
+                        navbar.style.background = 'rgba(15, 15, 15, 0.98)';
+                        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+                    } else {
+                        navbar.style.background = 'rgba(15, 15, 15, 0.95)';
+                        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                    }
+                }, { passive: true });
+            },
+
+            setupAnimations() {
+                const els = this.qsa('.service-card, .value-card, .portfolio-item, .category-card, .zone-card');
+                if (!('IntersectionObserver' in window) || els.length === 0) return;
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                els.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    el.style.transition = 'all 0.6s ease';
+                    observer.observe(el);
+                });
+            },
+
+            setupOutsideClickClose() {
+                document.addEventListener('click', function(event){
+                    const navbar = App.qs('.navbar');
+                    const navMenu = App.qs('.nav-menu');
+                    if (!navbar || !navMenu) return;
+                    if (!navbar.contains(event.target)) {
+                        navMenu.classList.remove('active');
+                    }
+                }, { passive: true });
+            },
+
+            addFloatingWhatsApp() {
+                const stack = this.ensureFloatingStack();
+                const link = document.createElement('a');
+                link.href = 'https://wa.me/5511937591981?text=Olá! Vim pelo o site, e gostaria de um orçamento de montagem.';
+                link.className = 'floating-whatsapp';
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.setAttribute('data-event','whatsapp_floating');
+                link.innerHTML = '<span class="floating-icon" aria-hidden="true">\
+<svg width="18" height="18" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#ffffff">\
+  <path d="M19.11 17.47c-.29-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.15-.19.29-.74.92-.9 1.11-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.42-1.7-1.59-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.49-.64-.5-.17-.01-.36-.01-.55-.01s-.5.07-.76.36c-.26.29-1 1-1 2.44 0 1.44 1.02 2.84 1.16 3.03.14.19 2 3.04 4.84 4.26.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.68-.69 1.92-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z"/>\
+  <path d="M26.06 5.94C23.31 3.19 19.79 1.67 16 1.67 8.27 1.67 2 7.94 2 15.67c0 2.5.65 4.93 1.88 7.08L2 30.33l7.76-1.83c2.08 1.14 4.44 1.74 6.84 1.74 7.73 0 14-6.27 14-14 0-3.79-1.52-7.31-4.27-10.06zm-10.06 22.4c-2.14 0-4.23-.57-6.06-1.65l-.44-.26-4.6 1.08 1.1-4.49-.28-.46C4.57 20.7 4 18.6 4 16.46 4 9.96 9.5 4.46 16 4.46c3.09 0 5.99 1.21 8.18 3.4 2.18 2.18 3.39 5.09 3.39 8.18 0 6.5-5.5 11.99-11.57 11.99z"/>\
+</svg>\
+</span> WhatsApp <span class="badge">Online</span>';
+                stack.appendChild(link);
+            },
+
+            addFloatingInstagram() {
+                const stack = this.ensureFloatingStack();
+                const link = document.createElement('a');
+                link.href = 'https://instagram.com/montagemexpress.oficial'; // substitua pelo @ oficial, se diferente
+                link.className = 'floating-instagram';
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.setAttribute('data-event','instagram_floating');
+                link.innerHTML = '<span class="floating-icon" aria-hidden="true">\
+<svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff">\
+  <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7z"/>\
+  <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2z"/>\
+  <circle cx="17.5" cy="6.5" r="1.2"/>\
+</svg>\
+</span> Instagram';
+                stack.appendChild(link);
+            },
+
+            ensureFloatingStack() {
+                let stack = this.qs('.floating-stack');
+                if (!stack) {
+                    stack = document.createElement('div');
+                    stack.className = 'floating-stack';
+                    document.body.appendChild(stack);
+                }
+                return stack;
             }
+        };
+
+        // Inicializa
+        App.init();
+
+        // Compatibilidade com atributos onclick existentes
+        window.showPage = function(pageId){ App.navigateTo(pageId, event); };
+        window.toggleMenu = function(){ App.toggleMenu(); };
+        window.App = App;
+    })();
+
+    // Removido: barra fixa mobile (voltando ao esquema anterior com botões flutuantes)
+
+    // Subtle attention after 8s of inactivity (floating actions)
+    (function attentionNudge(){
+        let timer = setTimeout(() => {
+            const wa = document.querySelector('.floating-whatsapp');
+            if (wa) wa.classList.add('attention');
+        }, 8000);
+        ['scroll','keydown','pointerdown','touchstart'].forEach(evt => {
+            window.addEventListener(evt, () => { clearTimeout(timer); }, { passive: true, once: true });
         });
-    });
-
-    // Navbar background on scroll
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-        } else {
-            navbar.style.background = 'rgba(0, 0, 0, 0.9)';
-        }
-    });
-
-    // Animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    document.querySelectorAll('.service-card, .value-card, .portfolio-item, .category-card, .zone-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const navbar = document.querySelector('.navbar');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navMenu = document.querySelector('.nav-menu');
-
-        if (!navbar.contains(event.target)) {
-            navMenu.classList.remove('active');
-        }
-    });
+    })();
 </script>
 </body>
 </html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <style>
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #d4af37;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        @media (max-width: 900px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #181818;
+                border-radius: 12px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+                flex-direction: column;
+                gap: 0;
+                min-width: 180px;
+                z-index: 2000;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .mobile-menu {
+                display: flex;
+            }
+            .nav-link {
+                padding: 18px 24px;
+                border-radius: 0;
+                border-bottom: 1px solid #232323;
+            }
+            .nav-link:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+    <!-- Navigation CSS (copiado do index.html) -->
+    <style>
+        .navbar {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #d4af37, #f7d794, #d4af37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37, #f7d794);
+            background-clip: padding-box;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-link {
+            color: #e9ecef;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 10px 18px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-link:hover {
+            color: #d4af37;
+            transform: translateY(-1px);
+        }
+        .nav-link.active {
+            color: #d4af37;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(247, 215, 148, 0.1));
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+        }
+        @media (max-width: 600px) {
+            .avaliacao .foto, .avaliacao .sem-foto {
+                width: 100vw !important;
+                max-width: 100%;
+                height: 200px !important;
+                border-radius: 0 0 12px 12px;
+                margin-left: -24px;
+                margin-right: -24px;
+            }
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliações de Clientes - Montagem Express</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #181818;
+            color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 32px 16px 64px 16px;
+        }
+        h1 {
+            text-align: center;
+            color: #ffe082;
+            margin-bottom: 18px;
+            font-size: 2.5rem;
+        }
+        .avaliacoes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .avaliacao {
+            background: linear-gradient(120deg, #232323 60%, #222 100%);
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+            padding: 28px 24px 20px 24px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            position: relative;
+        }
+        .avaliacao .foto {
+            width: 120px;
+            height: 90px;
+            border-radius: 10px;
+            object-fit: cover;
+            background: #333;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+            flex-shrink: 0;
+            border: 2px solid #ffe08233;
+            margin-bottom: 6px;
+        }
+        .avaliacao .sem-foto {
+            width: 120px;
+            height: 90px;
+            border-radius: 10px;
+            background: #292929;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffe082;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            border: 2px solid #ffe08233;
+            margin-bottom: 6px;
+        }
+        .avaliacao .conteudo {
+            flex: 1;
+        }
+        .avaliacao .nome {
+            font-weight: 700;
+            color: #ffe082;
+            font-size: 1.15rem;
+            margin-bottom: 2px;
+        }
+        .avaliacao .data {
+            font-size: 0.95rem;
+            color: #bdbdbd;
+            margin-bottom: 8px;
+        }
+        .avaliacao .texto {
+            font-size: 1.08rem;
+            color: #f8f9fa;
+            margin-bottom: 0;
+        }
+        .avaliacao .estrelas {
+            color: #ffd600;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        @media (max-width: 600px) {
+            .avaliacao { flex-direction: column; align-items: stretch; }
+            .avaliacao .foto, .avaliacao .sem-foto { margin-bottom: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation minimalista -->
+    <nav class="navbar" style="background:rgba(15,15,15,0.97);border-bottom:1px solid #ffe08222;box-shadow:0 2px 12px #0002;position:fixed;width:100%;z-index:1000;top:0;">
+        <div style="display:flex;align-items:center;justify-content:space-between;max-width:900px;margin:0 auto;padding:10px 18px;">
+            <button onclick="window.location.href='index.html'" aria-label="Voltar ao início" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;padding:0;">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ffe082" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M9 21V9h6v12"/></svg>
+            </button>
+            <a href="https://wa.me/5511937591981?text=Olá! Vim pelo o site, e gostaria de solicitar um orçamento para montagem" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" data-event="whatsapp_nav" style="background:linear-gradient(135deg,#25D366,#128C7E,#075E54);color:white;padding:10px 22px;text-decoration:none;border-radius:50px;font-weight:600;font-size:1rem;box-shadow:0 2px 10px #25d36644;display:flex;align-items:center;gap:8px;">
+                <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.11 17.47c-.29-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.15-.19.29-.74.92-.9 1.11-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.42-1.7-1.59-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.49-.64-.5-.17-.01-.36-.01-.55-.01s-.5.07-.76.36c-.26.29-1 1-1 2.44 0 1.44 1.02 2.84 1.16 3.03.14.19 2 3.04 4.84 4.26.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.68-.69 1.92-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" fill="#fff"/><path d="M26.06 5.94C23.31 3.19 19.79 1.67 16 1.67 8.27 1.67 2 7.94 2 15.67c0 2.5.65 4.93 1.88 7.08L2 30.33l7.76-1.83c2.08 1.14 4.44 1.74 6.84 1.74 7.73 0 14-6.27 14-14 0-3.79-1.52-7.31-4.27-10.06zm-10.06 22.4c-2.14 0-4.23-.57-6.06-1.65l-.44-.26-4.6 1.08 1.1-4.49-.28-.46C4.57 20.7 4 18.6 4 16.46 4 9.96 9.5 4.46 16 4.46c3.09 0 5.99 1.21 8.18 3.4 2.18 2.18 3.39 5.09 3.39 8.18 0 6.5-5.5 11.99-11.57 11.99z" fill="#fff"/></svg>
+                WhatsApp
+            </a>
+        </div>
+    </nav>
+    <div style="height:60px;"></div>
+    <script>
+        // Nenhum script de menu necessário
+    </script>
+    <div class="container">
+        <h1>O que nossos clientes dizem</h1>
+        <div class="avaliacoes-list">
+            <!-- Avaliação com foto do trabalho -->
+            <div class="avaliacao">
+                <img class="foto" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Foto do trabalho - Guarda-roupa montado">
+                <div class="conteudo">
+                    <div class="nome">Ricardo S.</div>
+                    <div class="data">Set 2025</div>
+                    <div class="estrelas">★★★★★</div>
+                    <div class="texto">Profissionais excelentes! Montaram meu guarda-roupa planejado com rapidez e perfeição. Recomendo muito!</div>
+                </div>
+            </div>
+            <!-- Avaliação sem foto do trabalho -->
+            <div class="avaliacao">
+                <div class="sem-foto">A</div>
+                <div class="conteudo">
+                    <div class="nome">Ana Paula</div>
+                    <div class="data">Ago 2025</div>
+                    <div class="estrelas">★★★★★</div>
+                    <div class="texto">Atendimento impecável, preço justo e montagem super rápida. Fiquei muito satisfeita!</div>
+                </div>
+            </div>
+            <!-- Avaliação com foto do trabalho -->
+            <div class="avaliacao">
+                <img class="foto" src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Foto do trabalho - Cozinha planejada">
+                <div class="conteudo">
+                    <div class="nome">Juliana M.</div>
+                    <div class="data">Jul 2025</div>
+                    <div class="estrelas">★★★★★</div>
+                    <div class="texto">Equipe muito educada, cuidadosa e pontual. Minha cozinha ficou perfeita!</div>
+                </div>
+            </div>
+            <!-- Avaliação sem foto do trabalho -->
+            <div class="avaliacao">
+                <div class="sem-foto">F</div>
+                <div class="conteudo">
+                    <div class="nome">Felipe T.</div>
+                    <div class="data">Jun 2025</div>
+                    <div class="estrelas">★★★★★</div>
+                    <div class="texto">Gostei muito do serviço, recomendo para quem busca agilidade e qualidade.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
